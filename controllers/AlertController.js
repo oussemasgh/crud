@@ -33,9 +33,9 @@ const create = (req, res) => {
     }
     const alert = new Alert({
         name: req.body.name,
-        description: req.body.description,
-        url: req.body.url,
-        status: req.body.status
+        source: req.body.source,
+        location: req.body.location,
+        type: req.body.type
     });
     alert.save(alert).then(data => {
         res.json(data);

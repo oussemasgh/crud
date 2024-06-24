@@ -14,7 +14,7 @@ const AlertSchema = new Schema({
     },
     location: {
         type: String,
-        required: true
+        required: false
     },
     type: {
         type: String,

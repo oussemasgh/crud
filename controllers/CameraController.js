@@ -2,6 +2,7 @@ const Camera = require('../models/CameraModel.js');
 const index = (req, res) => {
     Camera.find().then(cameras => {
         res.json(cameras);
+        console.log(cameras);
     }).catch(err => {
         res.status(500).send({
             message: err.message || 'Some error occurred while retrieving cameras'
@@ -37,7 +38,10 @@ const create = (req, res) => {
         name: req.body.name,
         description: req.body.description,
         url: req.body.url,
-        status: req.body.status
+        status: req.body.status,
+        resolution: req.body.resolution,
+        fps: req.body.fps,
+        ip_Address: req.body.ip_Address
     });
     camera.save(camera).then(data => {
         res.json(data);
@@ -70,7 +74,7 @@ const update = (req, res) => {
 };
 const destroy = (req, res) => {
     const id = req.params.id;
-    Camera.findByIdAndRemove(id).then(data => {
+    Camera.findByIdAndDelete(id).then(data => {
         if (!data) {
             res.status(404).send({
                 message: `Cannot delete Camera with id ${id}. Maybe Camera was not found`

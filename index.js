@@ -31,9 +31,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use("/api/v1/media", mediaRoutes);
-app.use("/public", express.static(path.join(__dirname, "public")));
-
 // Routes
 // app.use('/auth', authRoutes); // Authentication routes
 app.use('/users', UserRoute); // User routes

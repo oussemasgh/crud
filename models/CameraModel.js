@@ -17,7 +17,19 @@ const CameraSchema = new Schema({
     status: {
         type: String,
         required: false
-    }
+    },
+    resolution: {
+        type: String,
+        required: false
+    },
+    fps: {
+        type: String,
+        required: false
+    },
+    ip_Address: {
+        type: String,
+        required: false
+    },
 
 }, {
     timestamps: true
